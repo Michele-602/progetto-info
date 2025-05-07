@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <fstream>
 using namespace std;
 void stampamenu() {
     cout << "*************************************************\n";
@@ -16,13 +18,30 @@ void stampamenu() {
     cout << "*************************************************\n";
 
 }
-void leggicsv (){
-//prova
-}
+struct uni {
+ string codice_corso;
+ string descrizione_corso;
+ string codice_materia;
+ string descrizione_materia;
+ string matricola_studente;
+ string cognome_studente;
+ string nome_studente;
+};
+/*void carica_dati (   vector<uni> registro;){
+   ifstream file("corsi_studenti.csv");
+    getline(fin,registro.codice_corso,',');
+
+
+   fin.close();
+
+
+
+}*/
 int main()
 {
     bool finito = false;
-    char ch;
+    int ch;
+    vector<uni> registro;
 
     while (!finito) {
         stampamenu();
@@ -31,6 +50,7 @@ int main()
         switch (ch) {
 
             case '1':
+
                 break;
 
             case '2':
