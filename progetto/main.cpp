@@ -14,6 +14,10 @@ void stampamenu() {
     cout << "* 9 - salva dati su file                        *\n";
     cout << "* X - esci                                      *\n";
     cout << "*************************************************\n";
+
+}
+void leggicsv (){
+//prova
 }
 int main()
 {
