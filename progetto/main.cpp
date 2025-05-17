@@ -14,19 +14,34 @@ void stampamenu() {
     cout << "* 7 - cerca materie per descrizione             *\n";
     cout << "* 8 - inserisci nuovo studente                  *\n";
     cout << "* 9 - salva dati su file                        *\n";
-    cout << "* X - esci                                      *\n";
+    cout << "* 10 - esci                                      *\n";
     cout << "*************************************************\n";
 
 }
-struct uni {
+
+struct corso {
  string codice_corso;
  string descrizione_corso;
+
+};
+struct materia {
  string codice_materia;
  string descrizione_materia;
+
+};
+struct studente {
  string matricola_studente;
  string cognome_studente;
  string nome_studente;
+
 };
+struct uni {
+ materia x;
+ corso y;
+ studente z;
+
+};
+
 void carica_dati (   vector<uni> &registro){
      string a;
      int i=0;
@@ -35,87 +50,88 @@ void carica_dati (   vector<uni> &registro){
     getline(fin,a,',');
     uni tmp;
 
-    tmp.codice_corso=a;
+    tmp.y.codice_corso=a;
 
     getline(fin,a,',');
-    tmp.descrizione_corso=a;
+    tmp.y.descrizione_corso=a;
 
     getline(fin,a,',');
-    tmp.codice_materia=a;
+    tmp.x.codice_materia=a;
 
     getline(fin,a,',');
-    tmp.descrizione_materia=a;
+    tmp.x.descrizione_materia=a;
 
     getline(fin,a,',');
-    tmp.matricola_studente=a;
+    tmp.z.matricola_studente=a;
 
     getline(fin,a,',');
-    tmp.cognome_studente=a;
+    tmp.z.cognome_studente=a;
 
     getline(fin,a);
-    tmp.nome_studente=a;
+    tmp.z.nome_studente=a;
 
     registro.push_back(tmp);
    }
 
    fin.close();
-
+      for(auto c : registro){
+            cout<<c.y.codice_corso<<endl;
+     }
 
 
 }
+
 int main()
 {
-    bool finito = false;
+
     int ch;
     vector<uni> registro;
-
-    while (!finito) {
         stampamenu();
         cin >> ch;
+    while (ch<10) {
 
         switch (ch) {
-               case '0':
+               case 0:
                     carica_dati(registro);
-                break;
-
-
-            case '1':
+                    cout<<"ciao";
 
                 break;
 
-            case '2':
+
+            case 1:
+
                 break;
 
-            case '3':
+            case 2:
                 break;
 
-            case '4':
+            case 3:
                 break;
 
-            case '5':
+            case 4:
                 break;
 
-            case '6':
+            case 5:
                 break;
 
-            case '7':
+            case 6:
                 break;
 
-            case '8':
+            case 7:
                 break;
 
-            case '9':
+            case 8:
                 break;
 
-            case 'X':
-                finito = true;
+            case 9:
                 break;
 
-            default:
-                cout << "Opzione non valida\n";
+
+
 
         }
-
+     stampamenu();
+        cin >> ch;
     }
     return 0;
 }
