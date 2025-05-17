@@ -27,16 +27,42 @@ struct uni {
  string cognome_studente;
  string nome_studente;
 };
-/*void carica_dati (   vector<uni> registro;){
-   ifstream file("corsi_studenti.csv");
-    getline(fin,registro.codice_corso,',');
+void carica_dati (   vector<uni> &registro){
+     string a;
+     int i=0;
+   ifstream fin("corsi_studenti.csv");
+   while(!fin.eof()){
+    getline(fin,a,',');
+    uni tmp;
 
+    tmp.codice_corso=a;
+
+    getline(fin,a,',');
+    tmp.descrizione_corso=a;
+
+    getline(fin,a,',');
+    tmp.codice_materia=a;
+
+    getline(fin,a,',');
+    tmp.descrizione_materia=a;
+
+    getline(fin,a,',');
+    tmp.matricola_studente=a;
+
+    getline(fin,a,',');
+    tmp.cognome_studente=a;
+
+    getline(fin,a);
+    tmp.nome_studente=a;
+
+    registro.push_back(tmp);
+   }
 
    fin.close();
 
 
 
-}*/
+}
 int main()
 {
     bool finito = false;
@@ -48,6 +74,10 @@ int main()
         cin >> ch;
 
         switch (ch) {
+               case '0':
+                    carica_dati(registro);
+                break;
+
 
             case '1':
 
